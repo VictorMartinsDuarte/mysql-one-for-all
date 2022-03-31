@@ -1,18 +1,19 @@
 DROP DATABASE IF EXISTS SpotifyClone;
-
 CREATE DATABASE SpotifyClone;
+
+USE SpotifyClone;
 
 CREATE TABLE plan (
   plan_id INT AUTO_INCREMENT PRIMARY KEY,
   plan VARCHAR(50),
   price DEC(3, 2)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO plan(plan, price) VALUES
 ('gratuito', 0.00),
 ('familiar', 7.99),
-('universitario', 5.99),
 ('pessoal', 6.99);
+('universitario', 5.99),
 
 CREATE TABLE users (
   id_user INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,7 +22,7 @@ CREATE TABLE users (
   plan_id INT,
   FOREIGN KEY (plan_id)
     REFERENCES plan (plan_id)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO users(user, age, plan_id) VALUES
 ('Thati', 23, 1),
@@ -38,7 +39,7 @@ INSERT INTO users(user, age, plan_id) VALUES
 CREATE TABLE artists (
   artist_id INT AUTO_INCREMENT PRIMARY KEY,
   artist VARCHAR(50)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO artists(artist) VALUES
 ('Walter Phoenix'),
@@ -54,7 +55,7 @@ CREATE TABLE albums (
   artist_id INT,
   FOREIGN KEY (artist_id)
     REFERENCES artists (artist_id)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO albums(album, artist_id) VALUES
 ('Envious', 1),
@@ -75,7 +76,7 @@ CREATE TABLE songs (
   seconds INT,
   FOREIGN KEY (album_id)
     REFERENCES albums (album_id)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO songs(music, album_id, seconds) VALUES
 ('Soul For Us', 1, 200),
@@ -128,7 +129,7 @@ CREATE TABLE reproduction_history (
     REFERENCES users(id_user),
   FOREIGN KEY (music_id)
     REFERENCES songs (music_id)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO reproduction_history(id_user,
   music_id, reproduction_day) VALUES
@@ -179,7 +180,7 @@ CREATE TABLE user_follows (
     REFERENCES users (id_user),
   FOREIGN KEY (artist_id)
     REFERENCES artists (artist_id)
-) engine = InnoDB;
+) ENGINE=INNODB;
 
 INSERT INTO user_follows(id_user, artist_id) VALUES
 (1, 1),
