@@ -182,7 +182,8 @@ CREATE TABLE user_follows (
     REFERENCES artists (artist_id)
 ) ENGINE=INNODB;
 
-INSERT INTO user_follows(id_user, artist_id) VALUES
+INSERT INTO user_follows(id_user,
+    artist_id) VALUES
 (1, 1),
 (1, 4),
 (1, 3),
