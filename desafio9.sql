@@ -1,5 +1,5 @@
-SELECT COUNT(his.id_user) AS 'quantidade_musicas_no_historico'
-FROM SpotifyClone.users AS u
-  JOIN SpotifyClone.reproduction_history AS his
-    ON his.id_user = u.id_user
+SELECT COUNT(his.user_id) AS 'quantidade_musicas_no_historico'
+FROM SpotifyClone.Users AS u
+  JOIN SpotifyClone.Reproduction_history AS his
+    ON his.user_id = u.user_id
 WHERE u.user = "Bill";

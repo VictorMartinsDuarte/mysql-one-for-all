@@ -1,9 +1,9 @@
-SELECT c.music AS 'nome', COUNT(his.music_id) AS 'reproducoes'
-  FROM SpotifyClone.users AS u
-    JOIN SpotifyClone.reproduction_history AS his
-      ON u.id_user = his.id_user
-    JOIN SpotifyClone.songs AS c
-      ON c.music_id = his.music_id
+SELECT c.songs AS 'nome', COUNT(his.songs_id) AS 'reproducoes'
+  FROM SpotifyClone.Users AS u
+    JOIN SpotifyClone.Reproduction_history AS his
+      ON u.user_id = his.user_id
+    JOIN SpotifyClone.Songs AS c
+      ON c.songs_id = his.songs_id
 WHERE u.plan_id IN (1, 3)
-GROUP BY his.music_id
-ORDER BY c.music;
+GROUP BY his.songs_id
+ORDER BY c.songs;
