@@ -1,12 +1,11 @@
 DROP DATABASE IF EXISTS SpotifyClone;
+
 CREATE DATABASE SpotifyClone;
 
-USE SpotifyClone;
-
-CREATE TABLE plan (
+CREATE TABLE SpotifyClone.plan (
   plan_id INT AUTO_INCREMENT PRIMARY KEY,
-  plan VARCHAR(50),
-  price DEC(3, 2)
+  plan VARCHAR(50) NOT NULL,
+  price DEC(3, 2) NOT NULL
 ) ENGINE=INNODB;
 
 INSERT INTO plan(plan, price) VALUES
@@ -15,11 +14,11 @@ INSERT INTO plan(plan, price) VALUES
 ('pessoal', 6.99);
 ('universitario', 5.99),
 
-CREATE TABLE users (
+CREATE TABLE SpotifyClone.users (
   id_user INT AUTO_INCREMENT PRIMARY KEY,
-  user VARCHAR(50),
-  age INT,
-  plan_id INT,
+  user VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  plan_id INT NOT NULL,
   FOREIGN KEY (plan_id)
     REFERENCES plan (plan_id)
 ) ENGINE=INNODB;
@@ -36,9 +35,9 @@ INSERT INTO users(user, age, plan_id) VALUES
 ('Angelina', 42, 2),
 ('Paul', 46, 2);
 
-CREATE TABLE artists (
+CREATE TABLE SpotifyClone.artists (
   artist_id INT AUTO_INCREMENT PRIMARY KEY,
-  artist VARCHAR(50)
+  artist VARCHAR(100) NOT NULL
 ) ENGINE=INNODB;
 
 INSERT INTO artists(artist) VALUES
@@ -49,10 +48,10 @@ INSERT INTO artists(artist) VALUES
 ('Tyler Isle'),
 ('Fog');
 
-CREATE TABLE albums (
+CREATE TABLE SpotifyClone.albums (
   album_id INT AUTO_INCREMENT PRIMARY KEY,
-  album VARCHAR(50),
-  artist_id INT,
+  album VARCHAR(100) NOT NULL,
+  artist_id INT NOT NULL,
   FOREIGN KEY (artist_id)
     REFERENCES artists (artist_id)
 ) ENGINE=INNODB;
@@ -69,11 +68,11 @@ INSERT INTO albums(album, artist_id) VALUES
 ('No guarantees', 5),
 ('Apparatus', 6);
 
-CREATE TABLE songs (
+CREATE TABLE SpotifyClone.songs (
   music_id INT AUTO_INCREMENT PRIMARY KEY,
-  music VARCHAR(50),
-  album_id INT,
-  seconds INT,
+  music VARCHAR(100) NOT NULL,
+  album_id INT NOT NULL,
+  seconds INT NOT NULL,
   FOREIGN KEY (album_id)
     REFERENCES albums (album_id)
 ) ENGINE=INNODB;
@@ -120,9 +119,9 @@ INSERT INTO songs(music, album_id, seconds) VALUES
 ('Baby', 10, 136),
 ('You Make Me Feel So..', 10, 83);
 
-CREATE TABLE reproduction_history (
-  id_user INT,
-  music_id INT,
+CREATE TABLE SpotifyClone.reproduction_history (
+  id_user INT NOT NULL,
+  music_id INT NOT NULL,
   reproduction_day DATETIME,
   CONSTRAINT PRIMARY KEY (id_user, music_id),
   FOREIGN KEY (id_user)
@@ -172,9 +171,9 @@ INSERT INTO reproduction_history(id_user,
   (10, 12, '2017-07-27 05:24:49'),
   (10, 13, '2017-12-25 01:03:57');
 
-CREATE TABLE user_follows (
-  id_user INT,
-  artist_id INT,
+CREATE TABLE SpotifyClone.user_follows (
+  id_user INT NOT NULL,
+  artist_id INT NOT NULL,
   CONSTRAINT PRIMARY KEY (id_user, artist_id),
   FOREIGN KEY (id_user)
     REFERENCES users (id_user),
