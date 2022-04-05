@@ -1,22 +1,22 @@
 {
-    "coluna_usuario": "user_id",
-    "tabela_que_contem_usuario": "Users",
+    "coluna_usuario": "nome",
+    "tabela_que_contem_usuario": "usuarios",
 
-    "coluna_plano": "plan_id",
-    "tabela_que_contem_plano": "Plans",
+    "coluna_plano": "plano",
+    "tabela_que_contem_plano": "planos_de_assinatura",
 
-    "coluna_historico_de_reproducoes": "music_id",
-    "tabela_que_contem_historico_de_reproducoes": "Reproduction_history",
+    "coluna_historico_de_reproducoes": "data_reproducao",
+    "tabela_que_contem_historico_de_reproducoes": "historico",
 
-    "coluna_seguindo_artistas": "user_id",
-    "tabela_que_contem_seguindo_artistas": "User_follows",
+    "coluna_seguindo_artistas": "usuario_id",
+    "tabela_que_contem_seguindo_artistas": "seguindo_artistas",
 
-    "coluna_artista": "artist_id",
-    "tabela_que_contem_artista": "Artists",
+    "coluna_artista": "nome",
+    "tabela_que_contem_artista": "artistas",
 
-    "coluna_album": "album_id",
-    "tabela_que_contem_album": "Albums",
+    "coluna_album": "titulo",
+    "tabela_que_contem_album": "albuns",
 
-    "coluna_cancoes": "songs_id",
-    "tabela_que_contem_cancoes": "Songs"
+    "coluna_cancoes": "titulo",
+    "tabela_que_contem_cancoes": "musicas"
   }
